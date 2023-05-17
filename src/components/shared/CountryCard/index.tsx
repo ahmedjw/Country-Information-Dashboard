@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent, Typography, Box } from "@mui/material";
 import useStyles from "./styles";
-import {
-  CountryAddtionalData,
-  CountryCardProps,
-  CountryData,
-} from "./interfaces";
+import { CountryCardProps, CountryData } from "./interfaces";
 import Flag from "react-world-flags";
 import CDButton from "../CDButton";
 import axios from "axios";
@@ -36,11 +32,11 @@ const CountryCard: React.FC<CountryCardProps> = ({
             `https://restcountries.com/v3.1/alpha/${flag}`
           );
           const countryData = response.data;
-          console.log(countryData);
           setData(countryData);
           setLoading(false);
         } catch (error) {
           setError(error);
+          console.log(error);
         }
       };
 
